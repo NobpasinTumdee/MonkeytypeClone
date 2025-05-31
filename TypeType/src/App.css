@@ -1,7 +1,9 @@
 :root {
     --main-color: #1C1C1C;
     --sub: #DFD7AF;
-    --text: #F5F3ED; 
+    --text: #F5F3ED;
+    --nextword: #444444;
+    --wrong: #AF5F5F;
 }
 
 .header {
@@ -17,14 +19,50 @@ body{
     width: 70%;
     height: 20%;
     position: absolute;
-    top: 50%;
+    top: 40%;
     left: 50%;
     transform: translate(-50%, -50%);
-}
-.display-text{
-    font-size: large;
 }
 .inputkey {
     width: 100%;
     height: 20%;
+}
+
+
+.correct-char {
+  color: var(--text);
+}
+
+.wrong-char {
+  color: var(--wrong);
+}
+
+.current-char {
+  text-decoration: underline;
+  color: var(--nextword);
+}
+
+.mainpage {
+  margin: 20px;
+  font-family: monospace;
+  font-size: 1.2rem;
+}
+
+.typing-box {
+  /* border: 1px solid #ccc; */
+  color: var(--nextword);
+  padding: 1rem;
+  border-radius: 8px;
+  min-height: 120px;
+  outline: none;
+  white-space: pre-wrap;
+  line-height: 1.6;
+
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+
+  line-height: 1.6;
+  font-family: monospace;
+  font-size: 1.8rem;
 }

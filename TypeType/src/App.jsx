@@ -1,29 +1,35 @@
 import React, { useEffect, useState, useRef } from "react";
-import './App.css'
-const sampleText = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel pariatur optio at velit molestiae dicta minima veniam laudantium amet, perspiciatis nesciunt aperiam quis provident id.";
+import './App.css';
+
+const sampleText = "lorem ipsum dolor sit ";
 
 export default function MonkeyTypeClone() {
   const [text] = useState(sampleText);
   const [userInput, setUserInput] = useState("");
   const [startTime, setStartTime] = useState(null);
   const [endTime, setEndTime] = useState(null);
-  const inputRef = useRef(null);
+  const typingRef = useRef(null);
 
   useEffect(() => {
-    inputRef.current?.focus();
+    typingRef.current?.focus();
   }, []);
 
-  const handleInputChange = (e) => {
-    if (!startTime) setStartTime(Date.now());
-    setUserInput(e.target.value);
-  };
-
   const handleKeyDown = (e) => {
-    if (e.key === "Enter") {
-      if (userInput.trim() === text.trim()) {
-        setEndTime(Date.now());
-      }
+    if (!startTime) setStartTime(Date.now());
+
+    let nextInput = userInput;
+
+    if (e.key === "Backspace") {
+      nextInput = nextInput.slice(0, -1);
+    } else if (e.key.length === 1) {
+      nextInput += e.key;
     }
+
+    setUserInput(nextInput);
+
+    if (nextInput.length === text.length) {
+      setEndTime(Date.now());
+    }dfsgdfg
   };
 
   const getWPM = () => {
@@ -37,13 +43,18 @@ export default function MonkeyTypeClone() {
     <>
       <h1 className="header">MonkeyType Clone</h1>
       <div className="mainpage">
-        <div className="display-text">
+        <div
+          ref={typingRef}
+          tabIndex={0}
+          onKeyDown={handleKeyDown}
+          className="typing-box"
+        >
           {text.split("").map((char, index) => {
             let className = "";
             if (index < userInput.length) {
-              className = userInput[index] === char ? "text-green-500" : "text-red-500";
+              className = userInput[index] === char ? "correct-char" : "wrong-char";
             } else if (index === userInput.length) {
-              className = "underline text-blue-500";
+              className = "current-char";
             }
             return (
               <span key={index} className={className}>
@@ -53,19 +64,9 @@ export default function MonkeyTypeClone() {
           })}
         </div>
 
-        <input
-          ref={inputRef}
-          type="text"
-          value={userInput}
-          onChange={handleInputChange}
-          onKeyDown={handleKeyDown}
-          className="inputkey"
-          placeholder="Start typing here..."
-        />
-
         {endTime && (
-          <div className="mt-4">
-            <h2 className="text-lg font-semibold">Finished!</h2>
+          <div className="result">
+            <h2>Finished!</h2>
             <p>Words per minute (WPM): {getWPM()}</p>
           </div>
         )}
