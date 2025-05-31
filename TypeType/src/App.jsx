@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
-
-const sampleText = "this is a simple monkeytype clone typing test interface with live feedback";
+import './App.css'
+const sampleText = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel pariatur optio at velit molestiae dicta minima veniam laudantium amet, perspiciatis nesciunt aperiam quis provident id.";
 
 export default function MonkeyTypeClone() {
   const [text] = useState(sampleText);
@@ -34,41 +34,42 @@ export default function MonkeyTypeClone() {
   };
 
   return (
-    <div className="p-4">
-      <h1 className="text-xl font-bold mb-4">MonkeyType Clone</h1>
-
-      <div className="mb-4 text-xl font-mono flex flex-wrap">
-        {text.split("").map((char, index) => {
-          let className = "";
-          if (index < userInput.length) {
-            className = userInput[index] === char ? "text-green-500" : "text-red-500";
-          } else if (index === userInput.length) {
-            className = "underline text-blue-500";
-          }
-          return (
-            <span key={index} className={className}>
-              {char === " " ? "\u00A0" : char}
-            </span>
-          );
-        })}
-      </div>
-
-      <input
-        ref={inputRef}
-        type="text"
-        value={userInput}
-        onChange={handleInputChange}
-        onKeyDown={handleKeyDown}
-        className="w-full border px-2 py-1 text-lg font-mono"
-        placeholder="Start typing here..."
-      />
-
-      {endTime && (
-        <div className="mt-4">
-          <h2 className="text-lg font-semibold">Finished!</h2>
-          <p>Words per minute (WPM): {getWPM()}</p>
+    <>
+      <h1 className="header">MonkeyType Clone</h1>
+      <div className="mainpage">
+        <div className="display-text">
+          {text.split("").map((char, index) => {
+            let className = "";
+            if (index < userInput.length) {
+              className = userInput[index] === char ? "text-green-500" : "text-red-500";
+            } else if (index === userInput.length) {
+              className = "underline text-blue-500";
+            }
+            return (
+              <span key={index} className={className}>
+                {char === " " ? "\u00A0" : char}
+              </span>
+            );
+          })}
         </div>
-      )}
-    </div>
+
+        <input
+          ref={inputRef}
+          type="text"
+          value={userInput}
+          onChange={handleInputChange}
+          onKeyDown={handleKeyDown}
+          className="inputkey"
+          placeholder="Start typing here..."
+        />
+
+        {endTime && (
+          <div className="mt-4">
+            <h2 className="text-lg font-semibold">Finished!</h2>
+            <p>Words per minute (WPM): {getWPM()}</p>
+          </div>
+        )}
+      </div>
+    </>
   );
 }
