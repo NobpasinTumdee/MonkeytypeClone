@@ -11,7 +11,7 @@
 }
 
 .header {
-    margin: 60px 0px;
+    margin: 60px 0px 0px;
     text-align: center;
     color: var(--sub);
     font-size: 2.5rem;
@@ -24,7 +24,7 @@ body{
     width: 70%;
     height: 20%;
     position: absolute;
-    top: 40%;
+    top: 45%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
@@ -82,4 +82,100 @@ body{
     color: var(--sub);
     font-size: 60px;
     margin: 0 0 10px;
+}
+
+
+
+
+
+.getstart {
+  cursor: pointer;
+  text-align: center;
+  width: 100%;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 4rem 10rem;
+  transition: 0.5s ease-in-out;
+  /* background-color: var(--sub); */
+}
+
+.getstart:hover {
+  text-shadow: 0 0 20px var(--sub);
+  font-size: 1.5em;
+}
+
+
+
+.UserSetting {
+  text-align: center;
+  color: var(--sub);
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.radio-group {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin: 1rem 0;
+  font-size: 1rem;
+}
+
+.radio-option {
+  position: relative;
+  cursor: pointer;
+  padding: 0rem 0.5rem;
+  border-radius: 99px;
+  border: 2px solid var(--sub);
+  background-color: var(--nextword);
+  transition: all 0.3s ease;
+  font-weight: bold;
+}
+
+.radio-option:hover {
+  background-color: var(--sub);
+  border-color: var(--main-color);
+  color: var(--main-color);
+}
+
+.radio-option input[type="radio"] {
+  display: none;
+}
+
+.radio-option input[type="radio"]:checked + span {
+  color:var(--sub);
+}
+
+.radio-option span {
+  display: inline-block;
+  color: var(--sub);
+  padding: 4px;
+}
+
+/* Checked effect */
+.radio-option input[type="radio"]:checked + span {
+  background-color: var(--main-color);
+  padding: 0.3rem 1rem;
+  border-radius: 99px;
+}
+
+/* Button */
+.modern-button {
+  background-color: var(--main-color);
+  border: none;
+  color: var(--sub);
+  padding: 0.3rem 1rem;
+  font-size: 0.7rem;
+  font-weight: 700;
+  border-radius: 9999px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 2px solid var(--sub);
+}
+
+.modern-button:hover {
+  background-color: var(--sub);
+  transform: scale(1.05);
+  color: var(--main-color);
 }
