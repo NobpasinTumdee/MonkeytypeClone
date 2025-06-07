@@ -73,7 +73,9 @@ body{
 }
 
 .reset {
-    padding: 0 50%;
+  display: flex;
+  justify-content: center;
+  transform: translateX(-20px);
 }
 .result {
     transform: translateY(-30%);
