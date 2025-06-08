@@ -192,6 +192,9 @@ export default function MonkeyTypeClone() {
           </>
         )}
       </div>
+      <div className="testtextthai">
+        <p></p>
+      </div>
     </>
   );
 }

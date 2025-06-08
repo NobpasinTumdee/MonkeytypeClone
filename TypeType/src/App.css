@@ -11,10 +11,11 @@
 }
 
 .header {
-    margin: 60px 0px 0px;
+    margin: 40px 0px 0px;
     text-align: center;
     color: var(--sub);
     font-size: 2.5rem;
+    font-family: "Playwrite DE Grund", cursive;
 }
 body{
     background-color: var(--main-color);
@@ -180,4 +181,11 @@ body{
   background-color: var(--sub);
   transform: scale(1.05);
   color: var(--main-color);
+}
+
+
+.testtextthai {
+  font-family: "IBM Plex Sans Thai", sans-serif;
+  font-weight: 400;
+  color: var(--sub);
 }
