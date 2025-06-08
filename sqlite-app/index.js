@@ -1,5 +1,7 @@
 // How to run 
-// C:\Users\ACER\Documents\GitHub\MonkeytypeClone\sqlite-app>   node index.js
+// C:\Users\ACER\Documents\GitHub\MonkeytypeClone\sqlite-app>   node index.js "not recommend you can use this prefer"
+// C:\Users\ACER\Documents\GitHub\MonkeytypeClone\sqlite-app>   npm start
+
 // open cmd with run 
 // C:\Users\ACER\Documents\GitHub\MonkeytypeClone\sqlite-app>   sqlite3 database.db < schema.sql
 // if don't want to run on cmd you can use >>"sqlite3 database.db"<< in vs-code terminal and use this >>".read schema.sql"<<
@@ -7,10 +9,12 @@
 const express = require('express');
 const sqlite3 = require('sqlite3').verbose();
 const cors = require('cors');
+const morgan = require('morgan');
 
 const app = express();
 app.use(cors());
 app.use(express.json());
+app.use(morgan('dev')) // show log
 
 // เปิด database (สร้างไฟล์ชื่อ database.db)
 const db = new sqlite3.Database('./database.db', (err) => {
