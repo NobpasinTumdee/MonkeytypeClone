@@ -3,6 +3,7 @@ import { message } from 'antd';
 import './App.css';
 import ButtonClear from './button/ButtonClear';
 import { words } from "./Words";
+import { GetUserAll } from "./services/index";
 
 
 export default function MonkeyTypeClone() {
@@ -112,9 +113,38 @@ export default function MonkeyTypeClone() {
   };
 
 
+  // test api
+  const [users, setUsers] = useState([]);
+  useEffect(() => {
+    fetchUsers();
+  }, []);
+
+  const fetchUsers = async () => {
+    const res = await GetUserAll();
+    if (res?.status === 200) {
+      setUsers(res.data);
+    } else {
+      console.error("โหลดข้อมูลไม่สำเร็จ", res?.status);
+    }
+  };
+
   return (
     <>
       {contextHolder}
+
+      {/* ทดสอบเรียก api */}
+      <div style={{position:'fixed',color:'#fff'}}>
+        <h1>รายชื่อผู้ใช้</h1>
+        {users.map((user) => (
+          <div key={user.ID}>
+            <img src={user.picture} alt={user.user_name} width={100} />
+            <h3>{user.user_name}</h3>
+            <p>Email: {user.email}</p>
+            <p>ระดับ: {user.level}</p>
+          </div>
+        ))}
+      </div>
+
       <h1 className="header">GorillaType</h1>
       {!DisplayScore &&
         <div className="UserSetting">
@@ -125,8 +155,8 @@ export default function MonkeyTypeClone() {
 
           <div className="radio-group">
             <label className="radio-option">
-              <input type="radio" name="wordCount" onChange={() => ChangeNword(15)} />
-              <span>15</span>
+              <input type="radio" name="wordCount" onChange={() => ChangeNword(10)} />
+              <span>10</span>
             </label>
 
             <label className="radio-option">

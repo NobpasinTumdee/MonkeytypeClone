@@ -1,8 +1,12 @@
 package main
+
 import (
-	"typetype/config"
-	"github.com/gin-gonic/gin"
 	"net/http"
+	"typetype/config"
+	"typetype/controller/user"
+	"typetype/middlewares"
+
+	"github.com/gin-gonic/gin"
 )
 
 const PORT = "8000"
@@ -13,11 +17,16 @@ func main()  {
 	r := gin.Default()
 	r.Use(CORSMiddleware())
 
-	// r.GET("/users")
+	r.GET("/users",user.ListUsers)
 	r.GET("/", func(c *gin.Context) {
 		c.String(http.StatusOK, "API RUNNING... PORT: %s", PORT)
 	})
 	r.Run("localhost:" + PORT)
+
+	router := r.Group("") 
+	{
+		router.Use(middlewares.Authorizes())
+	}
 }
 
 func CORSMiddleware() gin.HandlerFunc {

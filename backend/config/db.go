@@ -2,9 +2,11 @@ package config
 
 import (
 	"fmt"
+	"time"
+	"typetype/entity"
+
 	"gorm.io/driver/sqlite"
 	"gorm.io/gorm"
-	"typetype/entity"
 )
 
 var db *gorm.DB
@@ -33,15 +35,20 @@ func SetupDatabase() {
 		&entity.Language{},
 	)
 
-	//hashedPassword, _ := HashPassword("1")
+	hashedPassword, _ := HashPassword("1")
 	//Example code
-	// Membership := []entity.Membership{
-	// 	{PackageName: "Week" ,Day: 7,Pwa: 350,Pea: 700,RentalFee: 1050},
-	// 	{PackageName: "Mount" ,Day: 30,Pwa: 1500,Pea: 3000,RentalFee: 3600},
-	// 	{PackageName: "Year" ,Day: 365,Pwa: 18250,Pea: 35600,RentalFee: 36500},
+	var countExampleData int64
+	db.Model(&entity.User{}).Count(&countExampleData)
 
-	// }
-	// for _, pkg := range Membership {
-	// 	db.FirstOrCreate(&pkg,entity.Membership{PackageName: pkg.PackageName})
-	// }
+	if countExampleData < 1 {
+		User := []entity.User{
+			{UserName: "PorGz", Password: hashedPassword, Email: "PorGz@gmail.com", Picture: "https://c8.alamy.com/comp/2R884Y1/cute-cartoon-baby-kiwi-bird-2R884Y1.jpg", Level: 1, TestCompleted: 1, DayStart: time.Now()},
+			{UserName: "Monkey", Password: hashedPassword, Email: "Monkey@gmail.com", Picture: "https://c8.alamy.com/comp/2R884Y1/cute-cartoon-baby-kiwi-bird-2R884Y1.jpg", Level: 1, TestCompleted: 1, DayStart: time.Now()},
+		}
+		for _, pkg := range User {
+			db.FirstOrCreate(&pkg, entity.User{Email: pkg.Email})
+		}
+	} else {
+		fmt.Println("ข้อมูลตัวอย่างมีครบแล้ว")
+	}
 }
