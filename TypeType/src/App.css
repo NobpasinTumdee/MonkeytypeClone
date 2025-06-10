@@ -2,6 +2,7 @@
     --main-color: #1C1C1C;
     --sub: #DFD7AF;
     --text: #F5F3ED;
+    --sub-background: #242424;
     --nextword: #444444;
     --wrong: #AF5F5F;
 }
@@ -37,10 +38,12 @@ body{
 
 .correct-char {
   color: var(--text);
+  transition: 0.2s ease-in-out;
 }
 
 .wrong-char {
   color: var(--wrong);
+  transition: 0.2s ease-in-out;
 }
 
 .current-char {
@@ -50,7 +53,7 @@ body{
 
 .mainpage {
   margin: 20px;
-  font-family: monospace;
+  font-family: "Roboto Mono", monospace;
   font-size: 1.2rem;
 }
 
@@ -69,8 +72,9 @@ body{
   overflow-wrap: break-word;
 
   line-height: 1.6;
-  font-family: monospace;
   font-size: 1.8rem;
+
+
 }
 
 .reset {
@@ -188,4 +192,9 @@ body{
   font-family: "IBM Plex Sans Thai", sans-serif;
   font-weight: 400;
   color: var(--sub);
+  background-color: var(--sub-background);
+  position: fixed;
+  bottom: 0;
+  padding: 20px;
+  border-radius: 10px;
 }

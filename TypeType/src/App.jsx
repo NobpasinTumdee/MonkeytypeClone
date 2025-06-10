@@ -4,6 +4,7 @@ import './App.css';
 import ButtonClear from './button/ButtonClear';
 import { words } from "./Words";
 import { GetUserAll } from "./services/index";
+import Profile from "./Page/Profile/Profile";
 
 
 export default function MonkeyTypeClone() {
@@ -133,7 +134,7 @@ export default function MonkeyTypeClone() {
       {contextHolder}
 
       {/* ทดสอบเรียก api */}
-      <div style={{position:'fixed',color:'#fff'}}>
+      {/* <div style={{position:'fixed',color:'#fff'}}>
         <h1>รายชื่อผู้ใช้</h1>
         {users.map((user) => (
           <div key={user.ID}>
@@ -143,7 +144,7 @@ export default function MonkeyTypeClone() {
             <p>ระดับ: {user.level}</p>
           </div>
         ))}
-      </div>
+      </div> */}
 
       <h1 className="header">GorillaType</h1>
       {!DisplayScore &&
@@ -222,9 +223,9 @@ export default function MonkeyTypeClone() {
           </>
         )}
       </div>
-      <div className="testtextthai">
-        <p></p>
-      </div>
+      {/* <div className="testtextthai">
+        <Profile />
+      </div> */}
     </>
   );
 }
