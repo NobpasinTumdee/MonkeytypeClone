@@ -63,6 +63,7 @@ export default function MonkeyTypeClone() {
     setEndTime(null);
     setDisplayScore(false);
     success();
+    handleGenerate();
   };
 
   //Message from antd
@@ -148,31 +149,41 @@ export default function MonkeyTypeClone() {
 
       <h1 className="header">GorillaType</h1>
       {!DisplayScore &&
-        <div className="UserSetting">
-          <p style={{ fontSize: "1rem", opacity: "0.5" }}>
-            Max words = {words.length} words
-          </p>
-          <p style={{ fontSize: "1.4rem", margin: "10px" }}>{count} Words</p>
+        <div className="option-bar">
+          <div className="nav-option-bar">
+            <p className="total-word-active">
+              total words = {words.length} words
+            </p>
+            <div className="space-bar"></div>
+            <p className="total-word">@ punctuation</p>
+            <p className="total-word-active"># numbers</p>
+            <div className="space-bar"></div>
+            <p className="total-word">time</p>
+            <p className="total-word-active">A words</p>
+            <p className="total-word">" quote</p>
+            <p className="total-word">zen</p>
+            <p className="total-word">custom</p>
+            <div className="space-bar"></div>
+            <div >
+              <label>
+                <input type="radio" name="wordCount" onChange={() => ChangeNword(10)} />
+                <span>10</span>
+              </label>
 
-          <div className="radio-group">
-            <label className="radio-option">
-              <input type="radio" name="wordCount" onChange={() => ChangeNword(10)} />
-              <span>10</span>
-            </label>
+              <label>
+                <input type="radio" name="wordCount" onChange={() => ChangeNword(25)} />
+                <span>25</span>
+              </label>
 
-            <label className="radio-option">
-              <input type="radio" name="wordCount" onChange={() => ChangeNword(25)} />
-              <span>25</span>
-            </label>
-
-            <label className="radio-option">
-              <input type="radio" name="wordCount" onChange={() => ChangeNword(50)} />
-              <span>50</span>
-            </label>
-          </div>
-
-          <div>
-            <button className="modern-button" onClick={handleGenerate}>Re Words</button>
+              <label>
+                <input type="radio" name="wordCount" onChange={() => ChangeNword(50)} />
+                <span>50</span>
+              </label>
+            </div>
+            <div className="space-bar"></div>
+            <div>
+              <div onClick={handleGenerate}>Re Words</div>
+            </div>
           </div>
         </div>
       }
