@@ -11,13 +11,32 @@
     background-color: var(--sub);
 }
 
+.header-nav {
+  margin: 2% 15% 0;
+  display: flex;
+  justify-content: space-between;
+  color: var(--text);
+}
 .header {
-    margin: 40px 0px 0px;
+    margin: 10px 20px;
     text-align: center;
     color: var(--sub);
-    font-size: 2.5rem;
-    font-family: "Playwrite DE Grund", cursive;
+    font-size: 2rem;
+    font-weight: 600;
+    font-family: "Work Sans", sans-serif;
+    display: flex;
+    gap: 20px;
+    align-items: center;
 }
+
+.profile-header-nav {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  cursor: pointer;
+  font-family: "Roboto Mono", monospace;
+}
+
 body{
     background-color: var(--main-color);
 }
@@ -156,4 +175,34 @@ body{
   width: 8px;
   border-radius: 5px;
   background-color: var(--main-color);
+}
+
+footer{
+  position: fixed;
+  bottom: 0;
+  width: 100vw;
+  font-family: "Roboto Mono", monospace;
+  font-size: 0.7rem;
+}
+
+.footer-content{
+  color: var(--nextword);
+  text-align: center;
+  margin: 0 0 10px;
+}
+
+.service-help{
+  display: flex;
+  gap: 10px;
+}
+.service-help-sub:hover{
+  color: var(--sub);
+  cursor: pointer;
+}
+
+.text-background {
+  background-color: var(--nextword);
+  color: var(--main-color);
+  border-radius: 3px;
+  padding: 0 5px;
 }

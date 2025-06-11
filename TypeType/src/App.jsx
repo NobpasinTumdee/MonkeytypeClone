@@ -5,6 +5,7 @@ import ButtonClear from './button/ButtonClear';
 import { words } from "./Words";
 import { GetUserAll } from "./services/index";
 import Profile from "./Page/Profile/Profile";
+import user from "./assets/user.png"
 
 
 export default function MonkeyTypeClone() {
@@ -147,12 +148,22 @@ export default function MonkeyTypeClone() {
         ))}
       </div> */}
 
-      <h1 className="header">GorillaType</h1>
+      <div className="header-nav">
+        <div className="header">
+          <p style={{ fontSize: '1.8rem', color: 'var(--text)', margin: '0', cursor: 'pointer' }}>GorillaType</p>
+          <p style={{ fontSize: '1.5rem', color: 'var(--nextword)', margin: '0', cursor: 'pointer' }}>⌨</p>
+          <p style={{ fontSize: '1.5rem', color: 'var(--nextword)', margin: '0', cursor: 'pointer' }}>ℹ</p>
+        </div>
+        <div className="profile-header-nav">
+          <span></span>
+          <span>👩🏻‍🚀PorGzz</span>
+        </div>
+      </div>
       {!DisplayScore &&
         <div className="option-bar">
           <div className="nav-option-bar">
             <p className="total-word-active">
-              total words = {words.length} words
+              {words.length} words
             </p>
             <div className="space-bar"></div>
             <p className="total-word">@ punctuation</p>
@@ -237,6 +248,27 @@ export default function MonkeyTypeClone() {
       {/* <div className="testtextthai">
         <Profile />
       </div> */}
+
+      <footer>
+        <div className="footer-content"><span className="text-background">Tab</span> + <span className="text-background">enter</span> - restart test</div>
+        <div className="footer-content"><span className="text-background">esc</span> or <span className="text-background">ctrl</span> + <span className="text-background">shift</span> + <span className="text-background">p</span> - command line</div>
+        <div style={{display:'flex',justifyContent:"space-between",color:'var(--nextword)',margin:'10px 10% 20px'}}>
+          <div className="service-help">
+            <span className="service-help-sub">contact</span>
+            <span className="service-help-sub">support</span>
+            <span className="service-help-sub">github</span>
+            <span className="service-help-sub">discord</span>
+            <span className="service-help-sub">twitter</span>
+            <span className="service-help-sub">terms</span>
+            <span className="service-help-sub">security</span>
+            <span className="service-help-sub">privacy</span>
+          </div>
+          <div className="service-help">
+            <span className="service-help-sub">alduin</span>
+            <span className="service-help-sub">v0.0.1</span>
+          </div>
+        </div>
+      </footer>
     </>
   );
 }
