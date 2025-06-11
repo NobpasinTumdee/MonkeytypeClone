@@ -23,7 +23,6 @@ export default function MonkeyTypeClone() {
       console.error("โหลดข้อมูลไม่สำเร็จ", res?.status);
     }
   };
-
   return (
     <>
 
@@ -43,8 +42,8 @@ export default function MonkeyTypeClone() {
       <div className="header-nav">
         <div className="header">
           <p style={{ fontSize: '1.8rem', color: 'var(--text)', margin: '0', cursor: 'pointer' }}>GorillaType</p>
-          <p onClick={() => setTypingBox(!isOpenTypingBox)} style={{ fontSize: '1.5rem', color: 'var(--nextword)', margin: '0', cursor: 'pointer' }}>⌨</p>
-          <p style={{ fontSize: '1.5rem', color: 'var(--nextword)', margin: '0', cursor: 'pointer' }}>ℹ</p>
+          <p className="header-menu" onClick={() => setTypingBox(!isOpenTypingBox)} >⌨</p>
+          <p className="header-menu" >ℹ</p>
         </div>
         <div className="profile-header-nav">
           <span></span>

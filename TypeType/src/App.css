@@ -28,6 +28,16 @@
     gap: 20px;
     align-items: center;
 }
+.header-menu {
+  font-size: 1.5rem;
+  color: var(--nextword);
+  margin: 0;
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+}
+.header-menu:hover {
+  color: var(--sub);
+}
 
 .profile-header-nav {
   display: flex;
@@ -57,12 +67,12 @@ body{
 
 .correct-char {
   color: var(--text);
-  transition: 0.2s ease-in-out;
+  transition: 0.1s ease-in-out;
 }
 
 .wrong-char {
   color: var(--wrong);
-  transition: 0.2s ease-in-out;
+  transition: 0.1s ease-in-out;
 }
 
 .current-char {
@@ -84,16 +94,12 @@ body{
   min-height: 120px;
   outline: none;
   white-space: pre-wrap;
-  line-height: 1.6;
-
-  white-space: pre-wrap;
   word-wrap: break-word;
   overflow-wrap: break-word;
+  text-align: center;
 
   line-height: 1.6;
   font-size: 1.5rem;
-
-
 }
 
 .reset {
@@ -103,16 +109,35 @@ body{
 }
 .result {
     transform: translateY(-30%);
+    margin: 0 10%;
 }
 .result h1{
     color: var(--sub);
     font-size: 60px;
     margin: 0 0 10px;
 }
+.result-type {
+  display: flex;
+}
+.calendar-result {
+  background-color: var(--sub-background);
+  margin: 2% 5%;
+  height: 150px;
+  padding: 30px 40px;
+  border-radius: 10px;
+}
 
-
-
-
+.randome-words {
+  color: var(--nextword);
+  cursor: pointer;
+  transition: 0.4s ease-in-out;
+}
+.randome-words:hover {
+  background-color: var(--sub);
+  padding: 2px 15px;
+  color: var(--sub-background);
+  border-radius: 5px;
+}
 
 .getstart {
   cursor: pointer;
@@ -177,7 +202,7 @@ body{
   background-color: var(--main-color);
 }
 
-footer{
+.footer-main{
   position: fixed;
   bottom: 0;
   width: 100vw;
@@ -195,9 +220,17 @@ footer{
   display: flex;
   gap: 10px;
 }
-.service-help-sub:hover{
-  color: var(--sub);
+.service-help-sub {
+  transition: 0.3s ease-in-out;
+  text-decoration: none;
+  color: inherit;
   cursor: pointer;
+}
+.service-help-sub:hover{
+  background-color: var(--sub);
+  padding: 0px 15px;
+  color: var(--sub-background);
+  border-radius: 5px;
 }
 
 .text-background {

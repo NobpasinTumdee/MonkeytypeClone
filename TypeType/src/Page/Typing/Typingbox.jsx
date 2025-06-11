@@ -3,6 +3,7 @@ import { message } from 'antd';
 import ButtonClear from "../../button/ButtonClear";
 import { words } from "../../Words";
 import '../../App.css';
+import Profile from "../Profile/Profile";
 
 
 const Typingbox = ({ isOpen }) => {
@@ -150,7 +151,7 @@ const Typingbox = ({ isOpen }) => {
                                 </div>
                                 <div className="space-bar"></div>
                                 <div>
-                                    <div onClick={handleGenerate}>Re Words</div>
+                                    <div className="randome-words" onClick={handleGenerate}>Random</div>
                                 </div>
                             </div>
                         </div>
@@ -183,21 +184,29 @@ const Typingbox = ({ isOpen }) => {
                                 ) : (
                                     <div className="getstart" onClick={handleGenerate()}>Click here to start</div>
                                 )}
-                                <div onClick={clear} className="reset"><ButtonClear /></div>
+                                <div className="reset">
+                                    <div onClick={clear}><ButtonClear /></div>
+                                </div>
                             </>
                         ) : (
                             <>
                                 <div className="result">
                                     <h2>Finished!</h2>
-                                    <span>
-                                        <h2>WPM</h2>
-                                        <h1>{getWPM()}</h1>
-                                    </span>
-                                    <span>
-                                        <h2>Accuracy</h2>
-                                        <h1>{getAcc()}%</h1>
-                                    </span>
-                                    <div onClick={clear}><ButtonClear /></div>
+                                    <div className="result-type">
+                                        <span>
+                                            <h2>WPM</h2>
+                                            <h1>{getWPM()}</h1>
+                                            <h2>Accuracy</h2>
+                                            <h1>{getAcc()}%</h1>
+                                        </span>
+                                        <div className="calendar-result">
+                                            <Profile />
+                                        </div>
+                                    </div>
+
+                                    <div className="reset">
+                                        <div onClick={clear}><ButtonClear /></div>
+                                    </div>
                                 </div>
                             </>
                         )}
