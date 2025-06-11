@@ -8,6 +8,7 @@ import Footerbox from "./Page/Footerbox";
 
 
 export default function MonkeyTypeClone() {
+  const [isOpenTypingBox, setTypingBox] = useState(true);
   // test api
   const [users, setUsers] = useState([]);
   useEffect(() => {
@@ -42,7 +43,7 @@ export default function MonkeyTypeClone() {
       <div className="header-nav">
         <div className="header">
           <p style={{ fontSize: '1.8rem', color: 'var(--text)', margin: '0', cursor: 'pointer' }}>GorillaType</p>
-          <p style={{ fontSize: '1.5rem', color: 'var(--nextword)', margin: '0', cursor: 'pointer' }}>⌨</p>
+          <p onClick={() => setTypingBox(!isOpenTypingBox)} style={{ fontSize: '1.5rem', color: 'var(--nextword)', margin: '0', cursor: 'pointer' }}>⌨</p>
           <p style={{ fontSize: '1.5rem', color: 'var(--nextword)', margin: '0', cursor: 'pointer' }}>ℹ</p>
         </div>
         <div className="profile-header-nav">
@@ -52,7 +53,7 @@ export default function MonkeyTypeClone() {
       </div>
 
       <div>
-        <Typingbox isOpen={true} />
+        <Typingbox isOpen={isOpenTypingBox} />
       </div>
 
       {/* <div className="testtextthai">
